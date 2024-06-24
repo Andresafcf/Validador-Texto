@@ -1,0 +1,10 @@
+/target/
+/.settings/
+.classpath
+/.metadata/
+/bin/
+/.VSCodeCounter/
+.tern-project
+.idea
+*.iml
+

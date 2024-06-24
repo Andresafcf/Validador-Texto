@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<meta charset="UTF-8" />
+    <title>Procesador de Texto</title>
+</h:head>
+<h:body>
+    <h:form>
+   		<h1>Procesador de Texto</h1>
+        <h:outputLabel value="Texto de Entrada:"/>
+        <br></br>
+        <h:inputTextarea value="#{validadorBean.textoEntrada}" rows="10" cols="50"/>
+        <br/>
+        <h:commandButton value="Procesar" action="#{validadorBean.procesarTexto()}"/>
+    
+    
+    <h:panelGrid columns="2" >
+        <h:outputText value="Texto de Salida:"/>
+        <br></br>
+        <ui:repeat value="#{validadorBean.textoSalidaList}" var="salida" rendered="#{not empty validadorBean.textoSalidaList}">
+            <h:outputText value="#{salida.fraseModificada} #{salida.numeroDePalabras ? 'true' : 'false'}"/>
+        <br></br>
+        </ui:repeat>
+        <h:outputText rendered="#{empty validadorBean.textoSalidaList}"
+        value="#{validadorBean.mensaje}"/>
+    </h:panelGrid>
+    </h:form>
+    
+</h:body>
+</html>
